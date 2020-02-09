@@ -333,6 +333,39 @@ def player_with_longest_name
     }
 end
 
+def player_with_most_steals
+    steals = []
+    data = game_hash
+    data.each { |key, value| 
+        value.each { |mid_key, mid_value|
+            if mid_key == :players 
+                mid_value.each { |element| 
+                    element.each { |key, value|
+                        if key == :steals
+                            steals << value
+                        end
+                    }
+                }
+            end
+        }
+    }
+    
+    data.each { |key, value|
+        value.each { |mid_key, mid_value|
+            if mid_key == :players 
+                mid_value.each { |element| 
+                    element.each { |key, value|
+                        if key == :steals
+                            if value == steals.max
+                                return element[:player_name]
+                            end
+                        end
+                    }
+                }
+            end
+        }
+    }
+end
 def long_name_steals_a_ton?
   return true
 end
