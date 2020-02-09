@@ -337,17 +337,17 @@ def player_with_most_steals
     steals = []
     data = game_hash
     data.each { |key, value| 
-        value.each { |mid_key, mid_value|
-            if mid_key == :players 
-                mid_value.each { |element| 
-                    element.each { |key, value|
-                        if key == :steals
-                            steals << value
-                        end
-                    }
-                }
-            end
-        }
+      value.each { |mid_key, mid_value|
+        if mid_key == :players 
+          mid_value.each { |element| 
+            element.each { |key, value|
+              if key == :steals
+                steals << value
+              end
+            }
+          }
+        end
+      }
     }
     
     data.each { |key, value|
