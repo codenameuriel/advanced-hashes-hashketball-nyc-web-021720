@@ -303,23 +303,23 @@ def player_with_longest_name
     length_of_names = []
     data = game_hash
     data.each { |outer_key, outer_value| 
-        outer_value.each { |mid_key, mid_value| 
-            if mid_key == :players
-                mid_value.each { |element| 
-                    element.each { |key, value| 
-                        if key == :player_name
-                            length_of_names << value.length
-                        end
-                    }
-                }
-            end
-        }
+      outer_value.each { |mid_key, mid_value| 
+        if mid_key == :players
+          mid_value.each { |element| 
+            element.each { |key, value| 
+              if key == :player_name
+                length_of_names << value.length
+              end
+            }
+          }
+        end
+      }
     }
     
     data.each { |outer_key, outer_value| 
-        outer_value.each { |mid_key, mid_value| 
-            if mid_key == :players
-                mid_value.each { |element| 
+      outer_value.each { |mid_key, mid_value| 
+        if mid_key == :players
+          mid_value.each { |element| 
                     element.each { |key, value| 
                         if key == :player_name
                             if length_of_names.max == value.length
