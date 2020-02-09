@@ -320,15 +320,15 @@ def player_with_longest_name
       outer_value.each { |mid_key, mid_value| 
         if mid_key == :players
           mid_value.each { |element| 
-                    element.each { |key, value| 
-                        if key == :player_name
-                            if length_of_names.max == value.length
-                                return value
-                            end
-                        end
-                    }
-                }
-            end
-        }
+            element.each { |key, value| 
+              if key == :player_name
+                if length_of_names.max == value.length
+                  return value
+                end
+              end
+            }
+          }
+        end
+      }
     }
 end
