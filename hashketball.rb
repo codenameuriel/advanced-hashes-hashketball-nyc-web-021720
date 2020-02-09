@@ -351,19 +351,19 @@ def player_with_most_steals
     }
     
     data.each { |key, value|
-        value.each { |mid_key, mid_value|
-            if mid_key == :players 
-                mid_value.each { |element| 
-                    element.each { |key, value|
-                        if key == :steals
-                            if value == steals.max
-                                return element[:player_name]
-                            end
-                        end
-                    }
-                }
-            end
-        }
+      value.each { |mid_key, mid_value|
+        if mid_key == :players 
+          mid_value.each { |element| 
+            element.each { |key, value|
+              if key == :steals
+                if value == steals.max
+                  return element[:player_name]
+                end
+              end
+            }
+          }
+        end
+      }
     }
 end
 def long_name_steals_a_ton?
